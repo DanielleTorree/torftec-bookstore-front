@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>TorfTec Bookstore</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TorfTec Bookstore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#visualizarLivros" id="linkLivros">Livros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#visualizarAutores" id="linkAutores">Autores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#visualizarEditoras" id="linkEditoras">Editoras</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- HOME -->
+    <div id="home" class="mt-5">
+      <h1>Bem-vindo à TorfTec Bookstore</h1>
+      <div class="row text-center mt-5">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">📚 Livros</h5>
+              <p class="card-text">Explore nossa coleção de livros incríveis.</p>
+              <a class="nav-link button-link" href="#visualizarLivros" id="linkLivrosHome">Livros</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">✍️ Autores</h5>
+              <p class="card-text">Conheça os autores por trás das obras.</p>
+              <a class="nav-link button-link" href="#visualizarAutores" id="linkAutoresHome">Autores</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">🏢 Editoras</h5>
+              <p class="card-text">Veja as editoras que publicam os livros.</p>
+              <a class="nav-link button-link" href="#visualizarEditoras" id="linkEditorasHome">Editoras</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVRO -->
+    <div id="visualizarLivros" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-4">Lista de Livros</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="voltarHome()">Voltar</a>
+      </div>
+
+      <button class="btn btn-primary mb-3" onclick="mostrarCadastroLivro()">Adicionar Livro</button>
+
+      <input type="text" class="form-control mb-3" placeholder="Buscar livro...">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Ano de publicação</th>
+            <th scope="col">Editora</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody id="livrosTableBody">
+          <!-- Os livros serão inseridos aqui via JavaScript -->
+        </tbody>
+      </table>
+
+      <!-- MODAL - EXCLUIR LIVRO -->
+      <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Excluir livro</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Tem certeza que deseja excluir este livro?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                onclick="deleteLivro()">Confirmar</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="visualizarLivro" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Detalhe livro</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="mostrarListaLivros()">Voltar</a>
+      </div>
+
+      <div id="livroDetalhe"></div>
+    </div>
+
+    <div id="cadastrarLivro" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Cadastrar Livro</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="mostrarListaLivros()">Voltar</a>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Título</label>
+          <input type="text" class="form-control" required id="novoTituloLivro">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Ano de publicação</label>
+          <input type="date" class="form-control" id="novoAnoPubliLivro">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" id="novoAutoresLivro">Autor</label>
+          <select class="form-control" id="selectAutor" multiple>
+            <option value="">Selecione um autor</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" id="novoEditoraLivro">Editora</label>
+          <select class="form-control" id="selectEditora">
+            <option value="">Selecione uma editora</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success" onclick="novoLivro(event)">Salvar</button>
+        <a href="index.html" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+
+    <!-- AUTOR -->
+    <div id="visualizarAutores" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-4">Lista de Autores</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="voltarHome()">Voltar</a>
+      </div>
+
+      <button class="btn btn-primary mb-3" onclick="mostrarCadastroAutor()">Adicionar autor</button>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+          </tr>
+        </thead>
+        <tbody id="autoresTableBody">
+          <!-- Os autores serão inseridos aqui via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="cadastrarAutor" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Cadastrar Autor</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="mostrarListaAutores()">Voltar</a>
+      </div>
+
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" required id="novoNomeAutor">
+        </div>
+
+        <button type="submit" class="btn btn-success" onclick="novoAutor(event)">Salvar</button>
+        <a href="index.html" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+
+    <!-- EDITORA -->
+    <div id="visualizarEditoras" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-4">Lista de Editoras</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="voltarHome()">Voltar</a>
+      </div>
+
+      <button class="btn btn-primary mb-3" onclick="mostrarCadastroEditora()">Adicionar editora</button>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+          </tr>
+        </thead>
+        <tbody id="editorasTableBody">
+          <!-- As editoras serão inseridos aqui via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div id="cadastrarEditora" class="mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Cadastrar Editora</h1>
+        <a href="#" class="btn btn-outline-secondary" onclick="mostrarListaEditoras()">Voltar</a>
+      </div>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" required id="novoNomeEditora">
+        </div>
+
+        <button type="submit" class="btn btn-success" onclick="novaEditora(event)">Salvar</button>
+        <a href="index.html" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>© 2025 TorfTec Bookstore. Todos os direitos reservados.</span>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

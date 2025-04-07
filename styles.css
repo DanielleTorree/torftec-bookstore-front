@@ -1,0 +1,171 @@
+/* Estilo base */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #343a40;
+}
+
+h1 {
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0d6efd !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: #fff !important;
+}
+
+.navbar .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Botões personalizados */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #084298;
+    border-color: #084298;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+button,
+input,
+select {
+    transition: all 0.3s ease;
+}
+
+.button-link {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+    color: white
+}
+
+/* Tabelas */
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #e9ecef;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+/* Inputs */
+input.form-control,
+select.form-control {
+    border-radius: 6px;
+}
+
+/* Container de seções */
+#visualizarLivros,
+#visualizarAutores,
+#visualizarEditoras,
+#cadastrarLivro,
+#cadastrarAutor,
+#cadastrarEditora,
+#visualizarLivro {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 8px;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+/* Alerta */
+.alert {
+    padding: 12px 20px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #28a745;
+}
+
+.alert.error {
+    background-color: #dc3545;
+}
+
+.alert.info {
+    background-color: #007bff;
+}
+
+.alert.warning {
+    background-color: #ffc107;
+}
+
+.alert.oculto {
+    display: none;
+}
